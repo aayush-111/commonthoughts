@@ -1,0 +1,3 @@
+.push{
+	margin-left: auto;		/*	Add the remaining flex space to "Sign In" item and auto assign the whole space to margin-left side*/
+}

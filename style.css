@@ -1,32 +1,35 @@
+/* Layout for Navigation bar & footer for all page */
 body{
 	margin: auto 0;  	/*	Removes default margins from the page*/
 	font-family: Arial;
+    font-size: 100%;
 }
 
 .zone{
 	color:#000 ;
-	font-size: 2em;			/*	2 times the size of contiaing element*/
+	font-size: 1.3rem;			/*	2 times the size of contiaing element*/
 	border-radius: 4px;		/*	Make circular border of elements (Nav, Div, Footer) having class = "zone"*/
 	border: 1px solid #BBB;
     transition: all 0.3s ;
 }
-
-.container{
-    border: 1px solid #FFF;
-
-}
-
-.main-nav{
-	display: flex;
-	font-size: 0.7em;		/*	0.7 times the size of contiaing element (2em earlier)*/
+nav{
+    display: flex;
+    justify-content: space-between;
 	margin: 0;
 }
+.center-nav{
+	display: flex;
+}
+.right-nav{
+    display: flex;
+}
 
-@media only screen and (max-width:600px){
-	.main-nav{
-		font-size: 0.35em;
-		padding: 0;
-	}
+ul {
+    margin-block-start: 0px;        /* Default 1em */    
+    margin-block-end: 0px;          /* Default 1em */
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;      /* Default 40px */
 }
 
 li{
@@ -39,15 +42,97 @@ a{
 	color:#f5f5f6;			/*	Change the default blue text color to white		*/
 }
 
-.push{
-	margin-left: auto;		/*	Add the remaining flex space to "Sign In" item and auto assign the whole space to margin-left side*/
+a:hover, .no-background:hover{
+    color: rgba(0,0,0,0.7);
+    /* font-weight: bold; */
+}
+
+.toogle-btn{
+    color:#fff;
+    font-size: 2rem;
+    position:relative;
+    top: 15px;
+    right:15px;
+    cursor: pointer;
+    display: none;   
+}
+
+.no-background{
+    background-color: transparent;
+    color:#f5f5f6;	
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.action-btn{
+    background-color: orange;
+    color: black;
+    padding: 5px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action-btn:hover{
+    scale: 1.05;
+}
+
+.action-btn:active{
+    scale: 0.95;
+}
+
+.dropdown-menu{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background-color: rgba(0, 0, 255, 0.5);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;    /* Hides the contents if the contents overflow outside box    */
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown-menu.open{
+    height: 220px;
+}
+
+.dropdown-menu li{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dropdown-menu .action-btn{
+    width: 100%;
 }
 
 .sticky{
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;             /* Control stacking order or overlapping of positioned elements. A higher 'z-index' element appear on top of elements with lower 'z-index' value.*/
+    z-index: 2;             /* Control stacking order or overlapping of positioned elements. A higher 'z-index' element appear on top of elements with lower 'z-index' value.*/
+}
+
+/* RESPONSIVE DESIGN */
+@media only screen and (max-width:950px){
+	.center-nav, .right-nav{
+		display: none;
+	}
+
+    .toogle-btn{
+        display: block;
+    }
+
+    .dropdown-menu{
+        display: block;
+    }
 }
 
 #theme{
@@ -61,36 +146,17 @@ a{
 	height: 50vh;			/*	50% of viewport height*/
 	justify-content: center;
 	align-items: center;
+    border: 1px solid #FFF;
 }
 
 .cover{
     width: 28rem;
 }
 
-.purpose{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    margin:30px 20px;
-    gap: 10px;
-}
-
-.topic{
-    font-size: 1.5rem;
-    font-weight:bold;
-    text-align: center;
-    margin: 12px 0 5px;
-}
-
-.content{
-    font-size: 1.15rem;
-    text-align: center;
-    margin: 20px 5px;
-}
-
 .grid-wrapper{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 0px;
+    /* gap: 0px; */
 }
 
 .box > img{
@@ -108,6 +174,7 @@ a{
 
 footer{
 	text-align: center;
+    margin-top: 10px;
 }
 
 .blue{
@@ -150,10 +217,6 @@ footer{
     background: linear-gradient(top, #F3AAAA 0%,#febf04 100%); /* W3C */
 }
 
-.nav-color:hover{
-    color: red;
-}
-
 /*.zone:hover {
     -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
     -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
@@ -166,4 +229,60 @@ footer{
     -moz-transform:scale(1.05,1.05);
     -o-transform:scale(1.05,1.05);
     transform:scale(1.05,1.05);
+}
+
+/* For About Us Page  */
+.purpose{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin:30px 20px;
+    gap: 10px;
+}
+
+.topic{
+    font-size: 1.5rem;
+    font-weight:bold;
+    text-align: center;
+    margin: 12px 0 5px;
+}
+
+.content{
+    font-size: 1.15rem;
+    text-align: center;
+    margin: 20px 5px;
+}
+
+/* For Main Contents Page */
+
+.main{
+    display: flex;
+    justify-content: center;
+}
+.main-content{
+	display: flex;
+    flex-wrap: wrap;
+    /* gap: 20px; */
+    max-width: 680px;
+    /* min-width: 0; */
+    margin: 150px 25px 50px 25px;
+    font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+
+}
+
+.username{
+    width:100%;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.photo{
+    width: 100%;
+    margin: 20px 0;
+}
+
+.paragraph{
+    line-height: 1.5em;
+}
+
+.sub-title{
+    font-weight: bold;
 }
