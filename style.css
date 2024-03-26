@@ -12,7 +12,7 @@ body{
 	border: 1px solid #BBB;
     transition: all 0.3s ;
 }
-nav{
+.main-nav{
     display: flex;
     justify-content: space-between;
 	margin: 0;
@@ -24,18 +24,23 @@ nav{
     display: flex;
 }
 
-ul {
+.nav-ul {
     margin-block-start: 0px;        /* Default 1em */    
     margin-block-end: 0px;          /* Default 1em */
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 0px;      /* Default 40px */
+    list-style: none;		        /*	Removes the bullet sign from the list*/
 }
 
-li{
-	list-style: none;		/*	Removes the bullet sign from the list*/
+.nav-li{
 	padding: 20px;			/*	Add the space between list items		*/
 }
+
+
+.content-ul {
+    list-style: disc outside;
+  }
 
 a{
 	text-decoration: none;	/*	Removes the hyperlink underline*/
