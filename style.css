@@ -140,6 +140,7 @@ a:hover, .no-background:hover{
     }
 }
 
+
 #theme{
     text-align: center;
     font-size: 0.8em;
@@ -162,6 +163,7 @@ a:hover, .no-background:hover{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     /* gap: 0px; */
+    
 }
 
 .box > img{
@@ -230,10 +232,10 @@ footer{
 }*/
 
 .box:hover{
-    -webkit-transform:scale(1.05,1.05);
-    -moz-transform:scale(1.05,1.05);
-    -o-transform:scale(1.05,1.05);
-    transform:scale(1.05,1.05);
+    -webkit-transform:scale(1.03,1.03);
+    -moz-transform:scale(1.03,1.03);
+    -o-transform:scale(1.03,1.03);
+    transform:scale(1.03,1.03);
 }
 
 /* For About Us Page  */
@@ -257,13 +259,27 @@ footer{
     margin: 20px 5px;
 }
 
-/* For Main Contents Page */
+/* For Contents main page */
+.contents-page{
+    display: grid;
+    grid-template-columns: 50% 20%;    
+    margin-top: 100px;
+    gap: 40px;
 
-.main{
+}
+
+.content-photo > img{
+    width: 100%;
+    height: 100%;
+}
+
+
+/* For Content format */
+.content-container{
     display: flex;
     justify-content: center;
 }
-.main-content{
+.content-format{
 	display: flex;
     flex-wrap: wrap;
     /* gap: 20px; */
